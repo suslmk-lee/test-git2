@@ -18,7 +18,7 @@ jobs:
       - name: upload-checksum
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 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
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: checksum.txt
