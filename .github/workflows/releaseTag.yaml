@@ -9,17 +9,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: version 2
-      run: echo "ver=$(echo '${{ github.event.head_commit.message }}' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"  >> $GITHUB_OUTPUT
+      run: echo "ver=$(echo '${{ github.event.head_commit.message }}' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"  >> $GITHUB_ENV
       #run: echo "TAG=$(echo '${{ steps.branch-name.outputs.current_branch }}' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')" >> $GITHUB_ENV
-      id: extract_version_name       
+      id: extract_version_name
     - name: Release 생성 
       uses: actions/create-release@v1
       env: 
         GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       with: 
-        tag_name: ${{ steps.extract_version_name.outputs.ver }} 
-        #tag_name: ${{ github.ref }}
-        release_name: ${{ steps.extract_version_name.outputs.ver }} 
+        tag_name: ${{ env.var }} 
+        release_name: ${{ env.var }} 
         body: |
           Changes in this Release
           - First Change
