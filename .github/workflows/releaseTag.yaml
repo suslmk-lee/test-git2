@@ -16,5 +16,5 @@ jobs:
       env: 
         GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       with: 
-        tag_name: ${{ steps.extract_version_name.outputs.version }} 
+        tag_name: ${{ GITHUB_OUTPUT }} 
         release_name: aaa
