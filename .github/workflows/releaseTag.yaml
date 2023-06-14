@@ -17,8 +17,8 @@ jobs:
       env: 
         GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       with: 
-        tag_name: ${{ env.var }} 
-        release_name: ${{ env.var }} 
+        tag_name: ${{ env.ver }} 
+        release_name: ${{ env.ver }} 
         body: |
           Changes in this Release
           - First Change
